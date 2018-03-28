@@ -1,8 +1,8 @@
-﻿
+﻿<link href="~/Content/Views/Converter.css" rel="stylesheet" />
 <h2 class="text-center">Numbers Converter to String</h2>
 
 <div class="container">
-	<form method="post" id="frmConv" action="Converter">
+	<form id="frmConv">
 		<div class="form-group">
 			<label for="inpNumber">Please enter the number you want to convert</label>
 			<input name="number" id="inpNumber" class="form-control"/>
@@ -16,33 +16,9 @@
 </div>
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-<script>
-	$(function () {
-		$("#btnFrm").click(function() {
-			var reqUrl = $(".divData").data("url");
-			var datReq = $("#frmConv").serialize();
-			$.ajax({
-				url: reqUrl,
-				type: 'post',
-				data: datReq,
-				success: function(result) {
-					$(".divData").html('<label>Number entered: </label><p>' + result.res + '</p>');
-				},
-				error: function() {
-					console.log("An error occurred on the request");;
-				}
-			});
-		});
-		return false;
-	})
+<script src="~/Scripts/Views/Converter.js"></script>
 
-</script>
 
-<style>
-	.divData {
-		margin-top: 5%;
-	}
-</style>
 
 
 

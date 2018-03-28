@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,17 +30,21 @@ namespace ExerciseBayshoreSolutions.Infraestructure
 		    {
 			    result = "- ";
 		    }
-			
-		    //if (number%1<=0.001)
-		    //{
-			    
-		    //}
 
-		    var integerPartNumber = Convert.ToInt32(Math.Truncate(number));
-		    var fractionalValue = number.ToString().Substring(integerPartNumber.ToString().Length+1);
+			if (number % 1 <= 0.001)
+			{
+				result += ConvertIntegerPartToString(Convert.ToInt32(number));
+			}
 
-			result += ConvertIntegerPartToString(integerPartNumber) 
-			          + FormatFractionalValue(fractionalValue);
+			else
+			{
+				var integerPartNumber = Convert.ToInt32(Math.Truncate(number));
+				var fractionalValue = number.ToString()
+					.Substring(integerPartNumber.ToString().Length + 1);
+
+				result += ConvertIntegerPartToString(integerPartNumber)
+				          + FormatFractionalValue(fractionalValue);
+			}
 
 			return result;
 
@@ -70,9 +75,9 @@ namespace ExerciseBayshoreSolutions.Infraestructure
 			    _numbersStringContainer.AddRange(new string[]
 			    {
 				    "twenty", "thirty", "forty", "fifty", "sixty",
-				    "sixty", "seventy", "eighty", "ninety"
+				    "seventy", "eighty", "ninety"
 			    });
-			    return _numbersStringContainer[number/10-1] + " " + ConvertIntegerPartToString(number % 10);
+			    return _numbersStringContainer[number/10-2] + " " + ConvertIntegerPartToString(number % 10);
 		    }
 
 		    if (number <= 999)
