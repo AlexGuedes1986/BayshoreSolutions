@@ -13,8 +13,7 @@ namespace ExerciseBayshoreSolutions.Infraestructure
 
 	   public string ConvertNumberToString(double number)
 	    {
-		   // _numbersStringContainer = new List<string>();
-			if (number <= 0.001)
+			if (number == 0)
 		    {
 			    return "cero";
 		    }
@@ -26,12 +25,7 @@ namespace ExerciseBayshoreSolutions.Infraestructure
 
 			var result = "";
 
-		    if (number < 0)
-		    {
-			    result = "- ";
-		    }
-
-			if (number % 1 <= 0.001)
+			if (number % 1 == 0)
 			{
 				result += ConvertIntegerPartToString(Convert.ToInt32(number));
 			}
@@ -55,9 +49,9 @@ namespace ExerciseBayshoreSolutions.Infraestructure
 			_numbersStringContainer = new List<string>();
 		    if (number < 0)
 		    {
-			    return "-" + ConvertIntegerPartToString(Math.Abs(number));
+			    return " negative " + ConvertIntegerPartToString(Math.Abs(number));
 		    }
-		    //var integerNumber = Convert.ToInt32(number);
+		    
 		    if (number <= 19)
 		    {
 			    _numbersStringContainer.AddRange(new string[]{
