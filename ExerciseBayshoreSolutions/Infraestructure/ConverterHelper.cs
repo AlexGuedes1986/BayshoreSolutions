@@ -18,7 +18,7 @@ namespace ExerciseBayshoreSolutions.Infraestructure
 			    return "cero";
 		    }
 
-		    if (number >= 1000000000)
+		    if (number >= 1000000000 || number <= -1000000000)
 		    {
 			    return "This program only converts to string numbers of 9 digits or less";
 		    }
